@@ -1,10 +1,244 @@
 <!DOCTYPE html>
 <html>
-<body>
+<head>
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+        :root {
+            --primary-color: #3a4052;
+        }
+
+        * {
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.5;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            font-weight: 300;
+            font-size: 60px;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .showcase {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            color: #fff;
+            padding: 0 20px;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--primary-color) url('./https://traversymedia.com/downloads/cover.jpg') no-repeat center;
+        }
+
+            .video-container video {
+                min-width: 100%;
+                min-height: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                object-fit: cover;
+            }
+
+            .video-container:after {
+                content: '';
+                z-index: 1;
+                height: 100%;
+                width: 100%;
+                top: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0.5);
+                position: absolute;
+            }
+
+        .content {
+            z-index: 2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 5px;
+            border: solid #fff 1px;
+            margin-top: 25px;
+            opacity: 0.7;
+        }
+
+            .btn:hover {
+                transform: scale(0.98);
+            }
+    </style>
+    <script language="JavaScript">
+        const buttons = document.querySelectorAll(".card-buttons button");
+        const sections = document.querySelectorAll(".card-section");
+        const card = document.querySelector(".card");
+
+        const handleButtonClick = (e) => {
+            const targetSection = e.target.getAttribute("data-section");
+            const section = document.querySelector(targetSection);
+            targetSection !== "#about"
+                ? card.classList.add("is-active")
+                : card.classList.remove("is-active");
+            card.setAttribute("data-state", targetSection);
+            sections.forEach((s) => s.classList.remove("is-active"));
+            buttons.forEach((b) => b.classList.remove("is-active"));
+            e.target.classList.add("is-active");
+            section.classList.add("is-active");
+        };
+
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", handleButtonClick);
+        });
+
+        function displaycontent(content) {
+            var x = document.getElementById(content);
+
+            if (content == 'about' || content == 'experience' || content == 'contact' || content == 'card') {
+
+            }
+
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+    </script>
+</head>
+<body onload="displaycontent('experience'); displaycontent('contact'); displaycontent('Card')">
     <section>
-        <div>
-            <div>
-                <a href="aboutme/aboutme.html">About me</a>
+        <div class="video-container">
+            <video src="https://traversymedia.com/downloads/video.mov" autoplay muted loop></video>
+        </div>
+    </section>
+
+    <section class="showcase">
+        <div class="content">
+            <h1 style="padding-bottom:25px">Morgan Wilson-Slider</h1>
+            <a onclick="displaycontent('Card')" style="margin-bottom:20px" class="btn">About Me</a>
+            <h1 style="font-size: 20px">Follow Me On Social Media</h1>
+            <a href="https://github.com/DigSwine" target="_blank"><i class="fa fa-github" style="font-size:36px; margin-right:15px; color:white"></i></a>
+            <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"><i class="fa fa-linkedin" style="font-size:36px; color:white"></i></a>
+        </div>
+    </section>
+
+    <section>
+        <div class="card overlay" id="Card">
+            <section>
+                <div class="card-header">
+                    <div class="card-cover" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E16AQFmBjyBPRbdWA/profile-displaybackgroundimage-shrink_200_800/0/1634197305510?e=2147483647&v=beta&t=67TDmmtgSUS0en99v6t36vCc-8U0GPALlih3YZKw7sY') "></div>
+                    <button class="overlay closebutton" onclick="displaycontent('Card')">X</button>
+                    <img class="card-avatar" src="assets/img_profile_myself.jpg" alt="avatar" />
+                    <h1 class="card-fullname">Morgan Wilson-Slider</h1>
+                    <h2 class="card-jobtitle">Technical Assistant</h2>
+                </div>
+            </section>
+
+            <div class="card-main">
+                <section>
+                    <div id="about">
+                        <div>
+                            <div class="card-item-title">About Me</div>
+                            <p class="card-item-desc">
+                                I have experience with vast aspects of the developmental process, this is through 5+ years of web development, both at university and at work.
+                            </p>
+                        </div>
+                        <div class="card-social">
+                            <a href="https://github.com/DigSwine" target="_blank"><i class="fa fa-github" style="font-size:36px; margin-right:15px; color:black"></i></a>
+                            <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"><i class="fa fa-linkedin" style="font-size: 36px; color: black"></i></a>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div id="experience">
+                        <div>
+                            <div class="card-subtitle">WORK EXPERIENCE</div>
+                            <div class="card-timeline">
+                                <div class="card-item" data-year="2021">
+                                    <div class="card-item-title">Sales Assistant at <span>Currys</span></div>
+                                    <div class="card-item-desc">
+                                        Assisting customers select products that fits their needs and offer IT
+                                        support where necessary
+                                    </div>
+                                </div>
+                                <div class="card-item" data-year="2022">
+                                    <div class="card-item-title">Technical Assistant at <span>WebSelect</span></div>
+                                    <div class="card-item-desc">Administration, Quality Assurance, Customer Support and WebDeveloping (Full Stack)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card-section" id="contact">
+                        <div>
+                            <div class="card-subtitle">CONTACT</div>
+                            <div class="card-contact-wrapper">
+                                <div class="card-contact">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                                        <circle cx="12" cy="10" r="3" />
+                                    </svg>
+                                    Algonquin Rd, Three Oaks Vintage, MI, 49128
+                                </div>
+                                <div class="card-contact">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
+                                    </svg>(269) 756-9809
+                                </div>
+                                <div class="card-contact">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                        <path d="M22 6l-10 7L2 6" />
+                                    </svg>
+                                    william@rocheald.com
+                                </div>
+                                <button class="contact-me">WORK TOGETHER</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card-buttons">
+                        <button data-section="#about" class="is-active">ABOUT</button>
+                        <button data-section="#experience">EXPERIENCE</button>
+                        <button data-section="#contact">CONTACT</button>
+                    </div>
+                </section>
+
             </div>
         </div>
     </section>
