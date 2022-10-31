@@ -7,17 +7,17 @@
     <link rel="stylesheet" href="stylesheets/cardstyle.css">
     <link rel="stylesheet" href="stylesheets/pagestyle.css">
 </head>
-<body onload="displaycontent('experience'); displaycontent('contact');">
+<body onload="displaycontent('experience'); displaycontent('contact'); displaycontent('about')">
     <section>
         <div class="video-container">
-            <video src="https://traversymedia.com/downloads/video.mov" autoplay muted loop></video>
+            <video src="assets/vids/background.mp4" autoplay muted loop></video>
         </div>
     </section>
 
     <section class="showcase">
         <div class="content">
             <h1 style="padding-bottom:25px">Morgan Wilson-Slider</h1>
-            <a onclick="displaycontent('Card')" style="margin-bottom:20px" class="btn">About Me</a>
+            <button onclick="displaycontent('Card');  displaycontent('about')" style="margin-bottom:20px" class="btn">About Me</button>
             <h1 style="font-size: 20px">Follow Me On Social Media</h1>
             <a href="https://github.com/DigSwine" target="_blank"><i class="fa fa-github" style="font-size:36px; margin-right:15px; color:white"></i></a>
             <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"><i class="fa fa-linkedin" style="font-size:36px; color:white"></i></a>
@@ -25,11 +25,16 @@
     </section>
 
     <section>
+        <div id="dimmer" class="doc-cover" style="display:none">
+        </div>
+    </section>
+
+    <section>
         <div class="card overlay" id="Card" style="display:none;">
             <section>
                 <div class="card-header">
-                    <div class="card-cover" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E16AQFmBjyBPRbdWA/profile-displaybackgroundimage-shrink_200_800/0/1634197305510?e=2147483647&v=beta&t=67TDmmtgSUS0en99v6t36vCc-8U0GPALlih3YZKw7sY') "></div>
-                    <button class="overlay closebutton" onclick="displaycontent('Card')">X</button>
+                    <!--<div class="card-cover" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E16AQFmBjyBPRbdWA/profile-displaybackgroundimage-shrink_200_800/0/1634197305510?e=2147483647&v=beta&t=67TDmmtgSUS0en99v6t36vCc-8U0GPALlih3YZKw7sY') "></div>-->
+                    <button class="overlay closebutton" onclick="displaycontent('Card');">X</button>
                     <img class="card-avatar" src="assets/img_profile_myself.jpg" alt="avatar" />
                     <h1 class="card-fullname">Morgan Wilson-Slider</h1>
                     <h2 class="card-jobtitle">Technical Assistant</h2>
@@ -55,23 +60,24 @@
                 <section>
                     <div id="experience">
                         <div>
-                            <div class="card-subtitle">WORK EXPERIENCE</div>
+                            <div class="card-item-title">WORK EXPERIENCE</div>
                             <div class="card-timeline">
                                 <div class="card-item" data-year="2021">
-                                    <div class="card-item-title">Sales Assistant at <span>Currys</span></div>
+                                    <div class="">Sales Assistant at <span>Currys</span></div>
                                     <div class="card-item-desc">
                                         Assisting customers select products that fits their needs and offer IT
                                         support where necessary
                                     </div>
                                 </div>
                                 <div class="card-item" data-year="2022">
-                                    <div class="card-item-title">Technical Assistant at <span>WebSelect</span></div>
+                                    <div class="">Technical Assistant at <span>WebSelect</span></div>
                                     <div class="card-item-desc">Administration, Quality Assurance, Customer Support and WebDeveloping (Full Stack)</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+
 
                 <section>
                     <div class="card-section" id="contact">
@@ -101,47 +107,32 @@
                         </div>
                     </div>
                 </section>
-                <!--
-                <section>
-                    <div class="card-buttons">
-                        <button data-section="#about" class="is-active">ABOUT</button>
-                        <button data-section="#experience">EXPERIENCE</button>
-                        <button data-section="#contact">CONTACT</button>
-                    </div>
-                </section>
-                    -->
             </div>
+            <!--
+            <section>
+                <div class="card-nav">
+                    <button onclick="displaycontent('about')" data-section="#about">ABOUT</button>
+                    <button onclick="displaycontent('experience')" data-section="#experience">EXPERIENCE</button>
+                    <button onclick="displaycontent('contact')" data-section="#contact">CONTACT</button>
+                </div>
+            </section>
+                -->
         </div>
     </section>
 </body>
 </html>
 <script>
-    const buttons = document.querySelectorAll(".card-buttons button");
-    const sections = document.querySelectorAll(".card-section");
-    const card = document.querySelector(".card");
-
-    const handleButtonClick = (e) => {
-        const targetSection = e.target.getAttribute("data-section");
-        const section = document.querySelector(targetSection);
-        targetSection !== "#about"
-            ? card.classList.add("is-active")
-            : card.classList.remove("is-active");
-        card.setAttribute("data-state", targetSection);
-        sections.forEach((s) => s.classList.remove("is-active"));
-        buttons.forEach((b) => b.classList.remove("is-active"));
-        e.target.classList.add("is-active");
-        section.classList.add("is-active");
-    };
-
-    buttons.forEach((btn) => {
-        btn.addEventListener("click", handleButtonClick);
-    });
-
     function displaycontent(content) {
         var x = document.getElementById(content);
 
-        if (content == 'about' || content == 'experience' || content == 'contact' || content == 'card') {
+        if (content == 'Card') {
+            displaycontent("dimmer");
+        }
 
+        if (content == 'about' || content == 'experience' || content == 'contact') {
+            document.getElementById('about').style.display = "none";
+            document.getElementById('experience').style.display = "none";
+            document.getElementById('contact').style.display = "none";
         }
 
         if (x.style.display === "none") {
@@ -150,4 +141,75 @@
             x.style.display = "none";
         }
     }
+
+    $(function () {
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+        console.log("width = " + w);
+        console.log("height = " + h);
+
+        //when scrolling down
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 50) {
+                //show left-side brand name
+                $("#brand_name").slideDown();
+                // //change collapisble-header background color
+                $("#collapsible-header").css("background", "white");
+                $("#collapsible-header .brand-name").slideDown();
+            } else {
+                $("#brand_name").slideUp();
+                $("#collapsible-header").css("background", "transparent");
+                $("#collapsible-header .brand-name").slideUp();
+            }
+
+            //Change nav menu color
+            var break_point = $("section").offset().top - 100;
+            if ($(window).scrollTop() > break_point) {
+                $("#main-nav, #main-nav a").css("color", "white");
+            } else {
+                $("#main-nav, #main-nav a").css("color", "#000");
+            }
+        });
+
+        //Zoom in background image
+        $("#intro a").hover(
+            function () {
+                $(".bgimage").css("transform", "scale(1.2)");
+            },
+            function () {
+                $(".bgimage").css("transform", "scale(1)");
+            }
+        );
+
+        //Copy 'main-nav' list to 'main-nav-drop'
+        var list = $('#main-nav ul')[0].outerHTML;
+        $('#main-nav-drop .holder-block').append(list);
+
+        //open nav-drop
+        $('.menu-icon a').click(function () {
+            $('#right-icons').css('opacity', '0');
+            $('#main-nav-drop').show(500);
+            $('body').addClass('noscroll-md');
+
+        });
+
+        //close nav-drop
+        $('#main-nav-drop .header-block>a').click(function () {
+            $('#right-icons').css('opacity', '1');
+            $('#main-nav-drop').hide(500);
+            $('body').removeClass('noscroll-md');
+        });
+
+        //Open 'Details' Modal
+        $('#right-icons a, #main-nav-drop .right-icons a').click(function () {
+            $('#right-modal').show(500);
+            $('body').addClass('noscroll');
+        });
+        //Close 'Details' Modal
+        $('#right-modal i.material-icons').click(function () {
+            $('#right-modal').hide(500);
+            $('body').removeClass('noscroll');
+        });
+    });
 </script>
