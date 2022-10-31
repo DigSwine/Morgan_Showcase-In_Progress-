@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\stylesheets"
+    "\\assets",
+    "\\assets\\vids"
   ],
-  "SelectedNode": "\\index.html",
+  "SelectedNode": "\\assets\\vids\\background0.mp4",
   "PreviewInSolutionExplorer": false
 }

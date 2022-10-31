@@ -4,212 +4,113 @@
     <title>Home Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="stylesheets/cardstyle.css">
     <link rel="stylesheet" href="stylesheets/pagestyle.css">
 </head>
-<body onload="displaycontent('experience'); displaycontent('contact'); displaycontent('about')">
-    <section>
+<body>
+    <!-- Background Video -->
+    <section name="background-video">
         <div class="video-container">
             <video src="assets/vids/background0.mp4" autoplay muted loop></video>
         </div>
     </section>
 
+    <!-- Landing Content -->
     <section class="showcase">
         <div class="content">
-            <h1 style="padding-bottom:25px">Morgan Wilson-Slider</h1>
-            <button onclick="displaycontent('Card');  displaycontent('about')" style="margin-bottom:20px" class="btn">About Me</button>
-            <h1 style="font-size: 20px">Follow Me On Social Media</h1>
-            <a href="https://github.com/DigSwine" target="_blank"><i class="fa fa-github" style="font-size:36px; margin-right:15px; color:white"></i></a>
-            <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"><i class="fa fa-linkedin" style="font-size:36px; color:white"></i></a>
-        </div>
-    </section>
+            <h1>Morgan Wilson-Slider</h1>
+            <button class="btn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <p>About Me</p>
+            </button>
+            <h2>Follow Me On Social Media</h2>
+            <ul>
+                <li>
+                    <a href="https://github.com/DigSwine" target="_blank">
+                        <i class="fa fa-brands fa-github"></i>
+                    </a>
+                </li>
 
-    <section>
-        <div id="dimmer" class="doc-cover" style="display:none">
-        </div>
-    </section>
+                <li>
+                    <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank">
+                        <i class="fa fa-brands fa-linkedin"></i>
+                    </a>
+                </li>
 
-    <section>
-        <div class="card overlay" id="Card" style="display:none;">
-            <section>
-                <div class="card-header">
-                    <!--<div class="card-cover" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E16AQFmBjyBPRbdWA/profile-displaybackgroundimage-shrink_200_800/0/1634197305510?e=2147483647&v=beta&t=67TDmmtgSUS0en99v6t36vCc-8U0GPALlih3YZKw7sY') "></div>-->
-                    <button class="overlay closebutton" onclick="displaycontent('Card');">X</button>
-                    <img class="card-avatar" src="assets/img_profile_myself.jpg" alt="avatar" />
-                    <h1 class="card-fullname">Morgan Wilson-Slider</h1>
-                    <h2 class="card-jobtitle">Technical Assistant</h2>
-                </div>
-            </section>
-
-            <div class="card-main">
-                <section>
-                    <div id="about">
-                        <div>
-                            <div class="card-item-title">About Me</div>
-                            <p class="card-item-desc">
-                                I have experience with vast aspects of the developmental process, this is through 5+ years of web development, both at university and at work.
-                            </p>
-                        </div>
-                        <div class="card-social">
-                            <a href="https://github.com/DigSwine" target="_blank"><i class="fa fa-github" style="font-size:36px; margin-right:15px; color:black"></i></a>
-                            <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"><i class="fa fa-linkedin" style="font-size: 36px; color: black"></i></a>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <div id="experience">
-                        <div>
-                            <div class="card-item-title">WORK EXPERIENCE</div>
-                            <div class="card-timeline">
-                                <div class="card-item" data-year="2021">
-                                    <div class="">Sales Assistant at <span>Currys</span></div>
-                                    <div class="card-item-desc">
-                                        Assisting customers select products that fits their needs and offer IT
-                                        support where necessary
-                                    </div>
-                                </div>
-                                <div class="card-item" data-year="2022">
-                                    <div class="">Technical Assistant at <span>WebSelect</span></div>
-                                    <div class="card-item-desc">Administration, Quality Assurance, Customer Support and WebDeveloping (Full Stack)</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-
-                <section>
-                    <div class="card-section" id="contact">
-                        <div>
-                            <div class="card-subtitle">CONTACT</div>
-                            <div class="card-contact-wrapper">
-                                <div class="card-contact">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                                        <circle cx="12" cy="10" r="3" />
-                                    </svg>
-                                </div>
-                                <div class="card-contact">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" />
-                                    </svg>(269) 756-9809
-                                </div>
-                                <div class="card-contact">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                                        <path d="M22 6l-10 7L2 6" />
-                                    </svg>
-                                    Morgan@testing.com
-                                </div>
-                                <button class="contact-me">WORK TOGETHER</button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-            <!--
-            <section>
-                <div class="card-nav">
-                    <button onclick="displaycontent('about')" data-section="#about">ABOUT</button>
-                    <button onclick="displaycontent('experience')" data-section="#experience">EXPERIENCE</button>
-                    <button onclick="displaycontent('contact')" data-section="#contact">CONTACT</button>
-                </div>
-            </section>
-                -->
+                <li>
+                    <a href="https://www.youtube.com/channel/UC_GdyQgrz9BmPDZ0JJyUMOg" target="_blank">
+                        <i class="fa fa-brands fa-youtube-play"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </section>
 </body>
 </html>
+<style>
+    ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+        ul li {
+            position: relative;
+            list-style: none;
+            margin: 0 20px;
+            cursor: pointer;
+        }
+            ul li a {
+                text-decoration: none;
+            }
+                ul li a .fa-brands {
+                    font-family: "FontAwesome";
+                    font-size: 36px;
+                    color: white;
+                    margin-top: 12.25px;
+                }
+                ul li a::before {
+                    font-family: "FontAwesome";
+                    position: absolute;
+                    font-size: 36px;
+                    height: 0;
+                    padding-top:3.5px;
+                    transition: 0.5s ease-in-out;
+                }
+            ul li:nth-child(1) a::before {
+                content: "\f09b";
+                background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%, #bc1888 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            ul li:nth-child(2) a::before {
+                content: "\f0e1";
+                background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%, #bc1888 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            ul li:nth-child(3) a::before {
+                content: "\f16a";
+                background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%, #bc1888 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            ul li:hover a::before {
+                height: 100%;
+            }
+</style>
+
+
 <script>
     function displaycontent(content) {
         var x = document.getElementById(content);
-
-        if (content == 'Card') {
-            displaycontent("dimmer");
-        }
-
-        if (content == 'about' || content == 'experience' || content == 'contact') {
-            document.getElementById('about').style.display = "none";
-            document.getElementById('experience').style.display = "none";
-            document.getElementById('contact').style.display = "none";
-        }
-
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
             x.style.display = "none";
         }
     }
-
-    $(function () {
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-
-        console.log("width = " + w);
-        console.log("height = " + h);
-
-        //when scrolling down
-        $(window).scroll(function () {
-            if ($(window).scrollTop() > 50) {
-                //show left-side brand name
-                $("#brand_name").slideDown();
-                // //change collapisble-header background color
-                $("#collapsible-header").css("background", "white");
-                $("#collapsible-header .brand-name").slideDown();
-            } else {
-                $("#brand_name").slideUp();
-                $("#collapsible-header").css("background", "transparent");
-                $("#collapsible-header .brand-name").slideUp();
-            }
-
-            //Change nav menu color
-            var break_point = $("section").offset().top - 100;
-            if ($(window).scrollTop() > break_point) {
-                $("#main-nav, #main-nav a").css("color", "white");
-            } else {
-                $("#main-nav, #main-nav a").css("color", "#000");
-            }
-        });
-
-        //Zoom in background image
-        $("#intro a").hover(
-            function () {
-                $(".bgimage").css("transform", "scale(1.2)");
-            },
-            function () {
-                $(".bgimage").css("transform", "scale(1)");
-            }
-        );
-
-        //Copy 'main-nav' list to 'main-nav-drop'
-        var list = $('#main-nav ul')[0].outerHTML;
-        $('#main-nav-drop .holder-block').append(list);
-
-        //open nav-drop
-        $('.menu-icon a').click(function () {
-            $('#right-icons').css('opacity', '0');
-            $('#main-nav-drop').show(500);
-            $('body').addClass('noscroll-md');
-
-        });
-
-        //close nav-drop
-        $('#main-nav-drop .header-block>a').click(function () {
-            $('#right-icons').css('opacity', '1');
-            $('#main-nav-drop').hide(500);
-            $('body').removeClass('noscroll-md');
-        });
-
-        //Open 'Details' Modal
-        $('#right-icons a, #main-nav-drop .right-icons a').click(function () {
-            $('#right-modal').show(500);
-            $('body').addClass('noscroll');
-        });
-        //Close 'Details' Modal
-        $('#right-modal i.material-icons').click(function () {
-            $('#right-modal').hide(500);
-            $('body').removeClass('noscroll');
-        });
-    });
 </script>
+
