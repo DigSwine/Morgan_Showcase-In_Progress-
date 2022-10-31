@@ -6,46 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/cardstyle.css">
     <link rel="stylesheet" href="stylesheets/pagestyle.css">
-
-    <script language="JavaScript">
-        const buttons = document.querySelectorAll(".card-buttons button");
-        const sections = document.querySelectorAll(".card-section");
-        const card = document.querySelector(".card");
-
-        const handleButtonClick = (e) => {
-            const targetSection = e.target.getAttribute("data-section");
-            const section = document.querySelector(targetSection);
-            targetSection !== "#about"
-                ? card.classList.add("is-active")
-                : card.classList.remove("is-active");
-            card.setAttribute("data-state", targetSection);
-            sections.forEach((s) => s.classList.remove("is-active"));
-            buttons.forEach((b) => b.classList.remove("is-active"));
-            e.target.classList.add("is-active");
-            section.classList.add("is-active");
-        };
-
-        buttons.forEach((btn) => {
-            btn.addEventListener("click", handleButtonClick);
-        });
-
-        function displaycontent(content) {
-            var x = document.getElementById(content);
-
-            if (content == 'about' || content == 'experience' || content == 'contact' || content == 'card') {
-
-            }
-
-            if (x.style.display === "none") {
-                x.style.display = "block";
-            } else {
-                x.style.display = "none";
-            }
-        }
-
-    </script>
 </head>
-<body onload="displaycontent('experience'); displaycontent('contact'); displaycontent('Card')">
+<body onload="displaycontent('experience'); displaycontent('contact');">
     <section>
         <div class="video-container">
             <video src="https://traversymedia.com/downloads/video.mov" autoplay muted loop></video>
@@ -63,7 +25,7 @@
     </section>
 
     <section>
-        <div class="card overlay" id="Card">
+        <div class="card overlay" id="Card" style="display:none;">
             <section>
                 <div class="card-header">
                     <div class="card-cover" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4E16AQFmBjyBPRbdWA/profile-displaybackgroundimage-shrink_200_800/0/1634197305510?e=2147483647&v=beta&t=67TDmmtgSUS0en99v6t36vCc-8U0GPALlih3YZKw7sY') "></div>
@@ -153,3 +115,39 @@
     </section>
 </body>
 </html>
+<script>
+    const buttons = document.querySelectorAll(".card-buttons button");
+    const sections = document.querySelectorAll(".card-section");
+    const card = document.querySelector(".card");
+
+    const handleButtonClick = (e) => {
+        const targetSection = e.target.getAttribute("data-section");
+        const section = document.querySelector(targetSection);
+        targetSection !== "#about"
+            ? card.classList.add("is-active")
+            : card.classList.remove("is-active");
+        card.setAttribute("data-state", targetSection);
+        sections.forEach((s) => s.classList.remove("is-active"));
+        buttons.forEach((b) => b.classList.remove("is-active"));
+        e.target.classList.add("is-active");
+        section.classList.add("is-active");
+    };
+
+    buttons.forEach((btn) => {
+        btn.addEventListener("click", handleButtonClick);
+    });
+
+    function displaycontent(content) {
+        var x = document.getElementById(content);
+
+        if (content == 'about' || content == 'experience' || content == 'contact' || content == 'card') {
+
+        }
+
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
