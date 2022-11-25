@@ -5,112 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/pagestyle.css">
+    <link rel="stylesheet" href="stylesheets/animationstyle.css">
 </head>
 <body>
-    <!-- Background Video -->
-    <section name="background-video">
-        <div class="video-container">
-            <video src="assets/vids/background0.mp4" autoplay muted loop></video>
-        </div>
-    </section>
+        <!-- Background Video -->
+        <section id="video" name="background-video">
+            <div class="video-container">
+                <video src="assets/vids/background0.mp4" autoplay muted loop></video>
+            </div>
+        </section>
 
-    <!-- Landing Content -->
-    <section class="showcase">
-        <div class="content">
-            <h1>Morgan Wilson-Slider</h1>
-            <button class="btn">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <p>About Me</p>
-            </button>
-            <h2>Follow Me On Social Media</h2>
-            <ul>
-                <li>
-                    <a href="https://github.com/DigSwine" target="_blank">
-                        <i class="fa fa-brands fa-github"></i>
-                    </a>
-                </li>
+        <!-- Landing Content -->
+        <section class="showcase cd-index cd-main-content">
+            <div id="mainpage" class="content">
+                <h1>Morgan Wilson-Slider</h1>
+                <button href="aboutme/aboutme.html" class="btn" data-type="page-transition">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <p>About Me</p>
+                </button>
 
-                <li>
-                    <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank">
-                        <i class="fa fa-brands fa-linkedin"></i>
-                    </a>
-                </li>
 
-                <li>
-                    <a href="https://www.youtube.com/channel/UC_GdyQgrz9BmPDZ0JJyUMOg" target="_blank">
-                        <i class="fa fa-brands fa-youtube-play"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </section>
+                <div class="cd-cover-layer"></div>
+                <div class="cd-loading-bar"></div>
+
+                <h2>Follow Me On Social Media</h2>
+                <div>
+                    <div class="social">
+                        <a href="https://github.com/DigSwine" target="_blank"></a>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"></a>
+                    </div>
+                    <div class="social">
+                        <a href="https://www.youtube.com/channel/UC_GdyQgrz9BmPDZ0JJyUMOg" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div id="content" class="card overlay" style="display:none; background-color:darkblue">
+
+            </div>
+        </section>
 </body>
 </html>
-<style>
-    ul {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-        ul li {
-            position: relative;
-            list-style: none;
-            margin: 0 20px;
-            cursor: pointer;
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js?ver=1.4.2"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function (event) {
+        var isAnimating = false;
+
+        //trigger smooth transition from the actual page to the new one
+        $('div').on('click', '[data-type="page-transition"]', function (event) {
+            event.preventDefault();
+            //detect which page has been selected
+            var newPage = $(this).attr('href');
+            //if the page is not already being animated - trigger animation
+            changePage(newPage, true);
+        });
+
+        function changePage(url, bool) {
+            isAnimating = true;
+            // trigger page animation
+            $('body').addClass('page-is-changing');
+            $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+                loadNewContent(url, bool);
+                $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+            });
         }
-            ul li a {
-                text-decoration: none;
-            }
-                ul li a .fa-brands {
-                    font-family: "FontAwesome";
-                    font-size: 36px;
-                    color: white;
-                    margin-top: 12.25px;
-                }
-                ul li a::before {
-                    font-family: "FontAwesome";
-                    position: absolute;
-                    font-size: 36px;
-                    height: 0;
-                    padding-top:3.5px;
-                    transition: 0.5s ease-in-out;
-                }
-            ul li:nth-child(1) a::before {
-                content: "\f09b";
-                background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%, #bc1888 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            ul li:nth-child(2) a::before {
-                content: "\f0e1";
-                background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%, #bc1888 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            ul li:nth-child(3) a::before {
-                content: "\f16a";
-                background-image: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%, #bc1888 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            ul li:hover a::before {
-                height: 100%;
-            }
-</style>
+
+        function loadNewContent(url, bool) {
+            url = ('' == url) ? 'index.html' : url;
+            var newSection = 'cd-' + url.replace('.html', '');
+            var section = $('<div class="cd-main-content ' + newSection + '"></div>');
+
+            section.load(url + ' .cd-main-content > *', function (event) {
+                // load new content and replace <main> content with the new one
+                $('body').html(section);
+                console.log(section);
 
 
-<script>
-    function displaycontent(content) {
-        var x = document.getElementById(content);
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
+                //if browser doesn't support CSS transitions - dont wait for the end of transitions
+                var delay = (transitionsSupported()) ? 1200 : 0;
+                setTimeout(function () {
+                    //wait for the end of the transition on the loading bar before revealing the new content
+                    (section.hasClass('cd-about')) ? $('body').addClass('cd-about') : $('body').removeClass('cd-about');
+                    $('body').removeClass('page-is-changing');
+                    $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
+                        isAnimating = false;
+                        $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
+                    });
+
+                    if (!transitionsSupported()) isAnimating = false;
+                }, delay);
+
+                if (url != window.location && bool) {
+                    //add the new page to the window.history
+                    //if the new page was triggered by a 'popstate' event, don't add it
+                    window.history.pushState({ path: url }, '', url);
+                }
+            });
         }
-    }
+
+        function transitionsSupported() {
+            return $('html').hasClass('csstransitions');
+        }
+    });
 </script>
-

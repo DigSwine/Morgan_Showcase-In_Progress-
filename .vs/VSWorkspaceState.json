@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\assets",
-    "\\assets\\vids"
+    "\\stylesheets"
   ],
-  "SelectedNode": "\\assets\\vids\\background0.mp4",
+  "SelectedNode": "\\stylesheets\\pagestyle.css",
   "PreviewInSolutionExplorer": false
 }
