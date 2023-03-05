@@ -5,33 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="stylesheets/pagestyle.css">
-    <link rel="stylesheet" href="stylesheets/animationstyle.css">
 </head>
 <body>
         <!-- Background Video -->
         <section id="video" name="background-video">
             <div class="video-container">
-                <video src="assets/vids/background0.mp4" autoplay muted loop></video>
+                <video src="assets/background0.mp4" autoplay muted loop></video>
             </div>
         </section>
 
         <!-- Landing Content -->
+    <main>
         <section class="showcase cd-index cd-main-content">
             <div id="mainpage" class="content">
                 <h1>Morgan Wilson-Slider</h1>
-                <button href="aboutme/aboutme.html" class="btn" data-type="page-transition">
+                <button id="aboutmebtn" class="btn">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
-                    <p>About Me</p>
+                    About Me
                 </button>
-
-
-                <div class="cd-cover-layer"></div>
-                <div class="cd-loading-bar"></div>
-
-                <h2>Follow Me On Social Media</h2>
+                <h2>Contact Me On Social Media</h2>
                 <div>
                     <div class="social">
                         <a href="https://github.com/DigSwine" target="_blank"></a>
@@ -39,15 +34,80 @@
                     <div class="social">
                         <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"></a>
                     </div>
-                    <div class="social">
-                        <a href="https://www.youtube.com/channel/UC_GdyQgrz9BmPDZ0JJyUMOg" target="_blank"></a>
-                    </div>
+                    <!--
+    <div class="social">
+        <a href="https://www.youtube.com/channel/UC_GdyQgrz9BmPDZ0JJyUMOg" target="_blank"></a>
+    </div>
+        -->
                 </div>
             </div>
         </section>
-        <section>
-            <div id="content" class="card overlay" style="display:none; background-color:darkblue">
+        </main>
 
+        <section>
+            <div class="pop-up">
+                <div class="content2">
+                    <span class="close">X</span>
+                    <div class="profileImg">
+                        <img src="assets/img_profile_myself.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="navigation">
+                        <a id="navAboutme" class="selected" href="#">About me</a>
+                        <a id="navExperiance" class="" href="#">Experiance</a>
+                        <a id="navContact" class="" href="#">Contact</a>
+                    </div>
+                    <div class="popupContent">
+                        <div id="aboutme" style="display: block;">
+                            <p class="name">Morgan Wilson-slider</p>
+                            <p class="jobT">Technical Assistant and QA Engineer</p>
+                            <p class="intro">
+                                An enthusiastic and dedicated individual who has a mature and responsible approach to situations, as a calm and professional person. <br>
+                                I have great communication skills that enables me to work within a team environment, but I am also confident in working individually and remotely. <br /><br /> I have experience with vast aspects of the developmental process, this is through
+                                5+ years of experience. <br>
+                                I have learned a great deal with at designing, creating, and testing web-based applications.
+                            </p>
+                        </div>
+                        <div id="experiance" style="display: none;">
+                            <div class="card-timeline">
+                                <div class="card-item" data-year="September 2017">
+                                    <div class="card-item-title">Student at <span>University of Plymouth</span></div>
+                                    <div class="card-item-desc">
+                                        Studied Computer and Information Security where I accelarated my knowledge of coding and developed the skills to 
+                                        learn and adapt my knowledge. Through this I have learned how to quickly overcome obsticals as well as cover a 
+                                        wide variety of developmental tools, languages, and techniques.
+                                    </div>
+                                </div>
+                                <div class="card-item" data-year="Augest 2021">
+                                    <div class="card-item-title">Sales Adviser at <span>Curry's PC World</span></div>
+                                    <div class="card-item-desc">
+                                        Help customers select products that suit them and offer IT support where
+                                        necessary. The main aim of working at Curry's PC World was to gain work experience, and to gain
+                                        some knowledge on hardware, connectivity and to gain a hands-on experience with customer
+                                        service.
+                                    </div>
+                                </div>
+                                <div class="card-item" data-year="March 2022">
+                                    <div class="card-item-title">Technical Assistant and QA Specilist at <span>WeHeartDigital</span></div>
+                                    <div class="card-item-desc">
+                                        Assist in solving Support issues, and investigating issues across multipul devices.
+                                        Providing Quality Assurance to ensure that work by myself and others is of the highest quality.
+                                        Web-Development - By using CRMs such as SelectCommerce, Shopify and WordPress to build and maintain websites for eCommerce clients.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="contact" class="btncontainer" style="display: none;">
+                            <p class="name">Contact Information</p>
+                            <button id="contact" class="btn2">Email Me</button>
+                            <button id="opencv" class="btn2">View my CV</button>
+                            <p class="name" style="margin-top: 10px;">External Links</p>
+                            <button id="linkedin" class="btn2">LinkedIn</button>
+                            <button id="github" class="btn2">Github</button>
+                            <button id="codepen" class="btn2">Codepen</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 </body>
@@ -55,63 +115,81 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js?ver=1.4.2"></script>
 <script type="text/javascript">
-    jQuery(document).ready(function (event) {
-        var isAnimating = false;
-
-        //trigger smooth transition from the actual page to the new one
-        $('div').on('click', '[data-type="page-transition"]', function (event) {
-            event.preventDefault();
-            //detect which page has been selected
-            var newPage = $(this).attr('href');
-            //if the page is not already being animated - trigger animation
-            changePage(newPage, true);
-        });
-
-        function changePage(url, bool) {
-            isAnimating = true;
-            // trigger page animation
-            $('body').addClass('page-is-changing');
-            $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
-                loadNewContent(url, bool);
-                $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
-            });
-        }
-
-        function loadNewContent(url, bool) {
-            url = ('' == url) ? 'index.html' : url;
-            var newSection = 'cd-' + url.replace('.html', '');
-            var section = $('<div class="cd-main-content ' + newSection + '"></div>');
-
-            section.load(url + ' .cd-main-content > *', function (event) {
-                // load new content and replace <main> content with the new one
-                $('body').html(section);
-                console.log(section);
-
-
-                //if browser doesn't support CSS transitions - dont wait for the end of transitions
-                var delay = (transitionsSupported()) ? 1200 : 0;
-                setTimeout(function () {
-                    //wait for the end of the transition on the loading bar before revealing the new content
-                    (section.hasClass('cd-about')) ? $('body').addClass('cd-about') : $('body').removeClass('cd-about');
-                    $('body').removeClass('page-is-changing');
-                    $('.cd-loading-bar').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function () {
-                        isAnimating = false;
-                        $('.cd-loading-bar').off('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend');
-                    });
-
-                    if (!transitionsSupported()) isAnimating = false;
-                }, delay);
-
-                if (url != window.location && bool) {
-                    //add the new page to the window.history
-                    //if the new page was triggered by a 'popstate' event, don't add it
-                    window.history.pushState({ path: url }, '', url);
-                }
-            });
-        }
-
-        function transitionsSupported() {
-            return $('html').hasClass('csstransitions');
-        }
+    $('#aboutmebtn').click(function () {
+        $('.pop-up').addClass('open');
     });
+    $('.pop-up .close').click(function () {
+        $('.pop-up').removeClass('open');
+    });
+
+    $('#contact').click(function () {
+        window.open(
+            'mailto: mwilsonslider1234@outlook.com'
+        );
+    });
+    $('#opencv').click(function () {
+        window.open(
+            'assets/Morgan_Wilson-Slider_CV.pdf',
+            '_blank'
+        );
+    });
+    $('#github').click(function () {
+        window.open(
+            'https://github.com/DigSwine',
+            '_blank'
+        );
+    }); 
+    $('#linkedin').click(function () {
+        window.open(
+            'https://www.linkedin.com/in/morgan-wilson-slider-411b39222/',
+            '_blank'
+        );
+    });
+    $('#codepen').click(function () {
+        window.open(
+            'https://codepen.io/DigSwine',
+            '_blank'
+        );
+    });
+    
+
+    
+
+
+
+    $('#navAboutme').click(function () {
+        $('#navAboutme').addClass('selected');
+        $('#navExperiance').removeClass('selected');
+        $('#navContact').removeClass('selected');
+        hide();
+        toggle("aboutme");
+    });
+    $('#navExperiance').click(function () {
+        $('#navAboutme').removeClass('selected');
+        $('#navExperiance').addClass('selected');
+        $('#navContact').removeClass('selected');
+        hide();
+        toggle("experiance");
+    });
+    $('#navContact').click(function () {
+        $('#navAboutme').removeClass('selected');
+        $('#navExperiance').removeClass('selected');
+        $('#navContact').addClass('selected');
+        hide();
+        toggle("contact");
+    });
+    function hide() {
+        document.getElementById("aboutme").style.display = "none";
+        document.getElementById("experiance").style.display = "none";
+        document.getElementById("contact").style.display = "none";
+    }
+    function toggle(srt) {
+        var x = document.getElementById(srt);
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+            
+        }
+    }
 </script>

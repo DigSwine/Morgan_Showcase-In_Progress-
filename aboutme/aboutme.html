@@ -1,91 +1,50 @@
-<link rel="stylesheet" href="stylesheets/cardstyle.css">
-<link rel="stylesheet" href="stylesheets/animationstyle.css">
-<main>
-    <div style="height:100%; width:100%; background-color:black;"></div>
-</main>
-
-
-<!--
-        <h1>About</h1>
-        <h2>Let me introduce myself.</h2>
-        <img src="../assets/img_profile_myself.jpg" alt="Profile Picture">
-        <p >
-            An enthusiastic and dedicated individual who has a mature and responsible approach to situations, as a calm and professional person. <br>
-            I have great communication skills that enables me to work within a team environment, but I am also confident in working individually and remotely. <br> I have experience with vast aspects of the developmental process, this is through
-            5+ years of experience. <br>
-            I have learned a great deal with at designing, creating, and testing web-based applications.
-        </p>
-<section>
-    <div class="row about-content">
-        <div class="col- tab-full">
-            <h3>Profile</h3>
-            <p>My Personal Details Are:</p>
-            <ul class="info-list">
-                <li>
-                    <strong>Fullname:</strong>
-                    <span>Morgan Wilson-Slider</span>
-                </li>
-                <li>
-                    <strong>Qualification:</strong>
-                    <span>BSc Computer and Information Security</span>
-                </li>
-                <li>
-                    <strong>Email</strong>
-                    <span>mwilsonslider1234@outlook.com</span>
-                </li>
-                <li>
-                    <strong>Github Repository</strong>
-                    <span>https://github.com/DigSwine?tab=repositories</span>
-                </li>
-            </ul>
+<div style="height:100%; width:100%; background-color:black;">
+    <h1>About</h1>
+    <h2>Let me introduce myself.</h2>
+    <img src="../assets/img_profile_myself.jpg" alt="Profile Picture">
+    <p>
+        An enthusiastic and dedicated individual who has a mature and responsible approach to situations, as a calm and professional person. <br>
+        I have great communication skills that enables me to work within a team environment, but I am also confident in working individually and remotely. <br> I have experience with vast aspects of the developmental process, this is through
+        5+ years of experience. <br>
+        I have learned a great deal with at designing, creating, and testing web-based applications.
+    </p>
+    <section>
+        <div class="row about-content">
+            <div class="col- tab-full">
+                <h3>Profile</h3>
+                <p>My Personal Details Are:</p>
+                <ul class="info-list">
+                    <li>
+                        <strong>Fullname:</strong>
+                        <span>Morgan Wilson-Slider</span>
+                    </li>
+                    <li>
+                        <strong>Qualification:</strong>
+                        <span>BSc Computer and Information Security</span>
+                    </li>
+                    <li>
+                        <strong>Email</strong>
+                        <span>mwilsonslider1234@outlook.com</span>
+                    </li>
+                    <li>
+                        <strong>Github Repository</strong>
+                        <span>https://github.com/DigSwine?tab=repositories</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
-
-<section>
-    <div class="row button-separator">
-        <div class="col-full">
-            <a href="mailto: mwilsonslider1234@outlook.com" class="button">Contact Me</a>
-            <a href="../assets/Morgan_Wilson-Slider_CV.pdf" class="button button-cv">Open CV</a>
+    </section>
+    <section>
+        <div class="row button-separator">
+            <div class="col-full">
+                <a href="mailto: mwilsonslider1234@outlook.com" class="button">Contact Me</a>
+                <a href="../assets/Morgan_Wilson-Slider_CV.pdf" class="button button-cv">Open CV</a>
+            </div>
         </div>
-    </div>
-</section>
-    -->
+    </section>
+</div>
 
-<script>
-    function openanimation() {
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("content").innerHTML = this.responseText;
-            }
-        };
-        xhttp.open("GET", "aboutme/aboutme.html", true);
-        xhttp.send();
-    }
 
-    function displaycontent(content) {
-        var x = document.getElementById(content);
-        if (x.style.display === "none") {
-            if (x.classList.contains("slideOutLeft")) {
-                x.classList.remove("slideOutLeft");
-            }
-            // x.classList.add("slideInLeft");
-            x.style.display = "block";
-        } else {
-            if (x.classList.contains("slideInLeft")) {
-                x.classList.remove("slideInLeft");
-            }
-            // x.classList.add("slideOutLeft");
 
-            var delayInMilliseconds = 0;
-            // delayInMilliseconds = 500;
-            setTimeout(function () {
-                x.style.display = "none";
-            }, delayInMilliseconds);
-
-        }
-    }
-</script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js?ver=1.4.2"></script>
 
