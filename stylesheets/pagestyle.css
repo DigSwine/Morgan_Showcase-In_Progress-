@@ -22,23 +22,24 @@ body {
     height: 100%;
     overflow-y: hidden;
     overflow-x: hidden;
+    font-size: 16px;
 }
 
 h1 {
     font-weight: 300;
-    font-size: 4em;
+    font-size: 6rem;
     line-height: 1.2;
     margin-bottom: 15px;
     padding-bottom: 25px;
 }
 h2 {
-    font-size: 20px;
+    font-size: 3rem;
     font-weight: 300;
     line-height: 1.2;
 }
 
 a {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .showcase {
@@ -105,7 +106,7 @@ a {
         font-family: "FontAwesome";
         text-decoration: none;
         -webkit-background-clip: text;
-        font-size: 36px;
+        font-size: 3rem;
         color: white;
     }
     .social:nth-child(1) a::before {
@@ -113,9 +114,6 @@ a {
     }
     .social:nth-child(2) a::before {
         content: "\f0e1";
-    }
-    .social:nth-child(3) a::before {
-        content: "\f16a";
     }
     .social:hover {
         background: transparent;
@@ -138,7 +136,7 @@ a {
     cursor: pointer;
     text-decoration: none;
     color: #fff;
-    font-size: 16px;
+    font-size: 1.5rem;
 }
     .btn:hover {
         background: #03e9f4;
@@ -262,7 +260,7 @@ a {
 }
     .navigation a {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 16px;
+        font-size: 2rem;
         color: var(--secondary-color);
         padding: 5px 5px 0 5px;
         border-bottom: 3px solid #72414100;
@@ -298,7 +296,7 @@ a {
         overflow: hidden;
         cursor: pointer;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 1.5rem;
     }
         .btncontainer .btn2:hover {
             background: var(--accent-color);
@@ -311,7 +309,7 @@ a {
     position: absolute;
     top: 20px;
     right: 20px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     letter-spacing: 0.05rem;
     color: white;
     transition: all .4s;
@@ -342,34 +340,27 @@ a {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 165px;
+    top: 200px;
     align-content: center;
     width: 90%;
     height: 70%;
 }
     .popupContent .name {
-        font-size: 16px;
+        font-size: 2rem;
         color: var(--MainText-color);
     }
     .popupContent .jobT {
-        font-size: 10px;
+        font-size: 1.5rem;
         color: var(--secondary-color);
     }
     .popupContent .intro {
         padding-top: 15px;
-        font-size: 12px;
+        font-size: 1.25rem;
         color: var(--Text-color);
     }
 
 ul {
     list-style-type: none;
-}
-
-h3 {
-    font-size: 16px;
-    color: white;
-    line-height: 130%;
-    letter-spacing: 0.07rem;
 }
 
 .CVbtn{
@@ -408,7 +399,7 @@ img {
     }
 .card-item {
     position: relative;
-    padding: 50px 50px 15px 100px;
+    padding: 85px 50px 15px 100px;
     z-index: 1;
 }
     .card-item:last-child {
@@ -421,17 +412,17 @@ img {
         left: 38.55%;
         width: 8px;
         height: 8px;
-        font-size: 12px;
-        line-height: 0.6;
-        border: 2px solid var(--accent-color);
-        text-indent: -110px;
+        font-size: 1.5rem;
+        line-height: 0.1;
+        border: 5px solid var(--accent-color);
+        text-indent: -200px;
         border-radius: 50%;
         background: var(--accent-color);
     }
 .card-item-title {
-    font-size: 14px;
+    font-size: 1.5rem;
     position: absolute;
-    top: -5px;
+    top: -15px;
     left: 40.5%;
     color: var(--secondary-color);
 }
@@ -440,9 +431,52 @@ img {
     }
 .card-item-desc {
     position: absolute;
-    top: 10px;
+    top: 13px;
     left: 40.5%;
-    font-size: 10px;
+    font-size: 1rem;
     text-align: left;
     color: var(--Text-color);
 }
+
+.subform {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 70%;
+    z-index: 100;
+    padding: 30px;
+    text-align: center;
+    background: var(--bg-color);
+}
+.subform form{
+    padding: 15px;
+    position: relative;
+}
+.subform h3 {
+    font-size: 1.5rem;
+    color: black;
+    letter-spacing: 0.07rem;
+}
+    .subform input {
+        font-size: 1.25rem;
+        text-align: center;
+        padding: 5px;
+        margin: 5px 0 5px 0;
+        width: 98.25%;
+    }
+    .subform input:nth-child(1) {
+        width: 49%;
+    }
+    .subform input:nth-child(2) {
+        width: 49%;
+    }
+    .subform .closeCover{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: -150px;
+        right: -300px;
+        background-color: var(--bg-color);
+    }

@@ -93,16 +93,30 @@
                         </div>
                         <div id="contact" class="btncontainer" style="display: none;">
                             <p class="name">Contact Information</p>
-                            <button id="contact" class="btn2">Email Me</button>
-                            <button id="opencv" class="btn2">View my CV</button>
+                            <button id="contact" data-type="email" class="btn2">Email Me</button>
+                            <button id="opencv" data-type="cv" class="btn2">View my CV</button>
                             <p class="name" style="margin-top: 10px;">External Links</p>
                             <button id="linkedin" class="btn2">LinkedIn</button>
                             <button id="github" class="btn2">Github</button>
                             <button id="codepen" class="btn2">Codepen</button>
                         </div>
                     </div>
-
                 </div>
+            </div>
+        </section>
+        <section>
+            <div id="emailSub" class="subform" style="display: none">
+                <span class="close">X</span>
+                <span id="selected"></span>
+                <div class="closeCover"></div>
+                <h3>Thank you! Please enter your detials to continue.</h3>
+                <form id="e-form">
+                    <input id="first" type="text" required placeholder="First Name"  />
+                    <input id="secon" type="text" required placeholder="Second Name"  />
+                    <input id="company" type="text" required placeholder="Company Name"  />
+                    <input id="emailid" type="email" required placeholder="Email Address" />
+                    <input id="subimit" class="btn" type="submit" value="Submit"/>
+                </form>
             </div>
         </section>
 </body>
@@ -112,21 +126,31 @@
 <script type="text/javascript">
     $('#aboutmebtn').click(function () {
         $('.pop-up').addClass('open');
+
     });
     $('.pop-up .close').click(function () {
         $('.pop-up').removeClass('open');
     });
 
     $('#contact').click(function () {
+        
+        
+        
         window.open(
             'mailto: mwilsonslider1234@outlook.com'
         );
+        
+    });
+    $('#emailSub .close').click(function () {
+        document.getElementById('emailSub').style.display = "none";
     });
     $('#opencv').click(function () {
-        window.open(
+        
+         window.open(
             'assets/Morgan_Wilson-Slider_CV.pdf',
             '_blank'
         );
+        
     });
     $('#github').click(function () {
         window.open(
@@ -145,6 +169,10 @@
             'https://codepen.io/DigSwine',
             '_blank'
         );
+    });
+    $("#e-form").submit(function (e) {
+        e.preventDefault();
+        save();
     });
 
     $('#navAboutme').click(function () {
@@ -182,5 +210,10 @@
             x.style.display = "none";
             
         }
+    }
+</script>
+<script>
+    function save() {
+        alert();
     }
 </script>
