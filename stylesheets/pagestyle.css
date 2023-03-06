@@ -2,6 +2,11 @@
 
 :root {
     --primary-color: #3a4052;
+    --bg-color: #0b1419;
+    --secondary-color: #8a8988;
+    --accent-color: #312237;
+    --MainText-color: white;
+    --Text-color: #F9F6EE;
 }
 
 * {
@@ -234,7 +239,7 @@ a {
     opacity: 0;
     transition: all .3s;
     z-index: 10;
-    background-color: black;
+    background-color: var(--bg-color);
     color: white;
 }
 .content2 {
@@ -258,7 +263,7 @@ a {
     .navigation a {
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 16px;
-        color: white;
+        color: var(--secondary-color);
         padding: 5px 5px 0 5px;
         border-bottom: 3px solid #72414100;
         flex-basis: 20%;
@@ -266,10 +271,10 @@ a {
         .navigation a:hover {
             transition: 0.3s;
             border-bottom: 3px solid #4E204D;
-            
         }
     .navigation .selected {
-        border-bottom: 3px solid #4E204D;
+        border-bottom: 3px solid var(--accent-color);
+        color: var(--MainText-color);
     }
 
 .btncontainer {
@@ -286,21 +291,20 @@ a {
         width: 36%;
         margin: 10px 10px 0 0;
         background: none;
-        color: #fff;
+        color: var(--primary-color);
         border: solid #fff 0px;
         margin-top: 10px;
         transition: 0.5s;
         overflow: hidden;
         cursor: pointer;
         text-decoration: none;
-        color: #fff;
         font-size: 16px;
     }
         .btncontainer .btn2:hover {
-    background: #03e9f4;
-    color: #050801;
-    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px #03e9f4;
-}
+            background: var(--accent-color);
+            color: var(--MainText-color);
+            box-shadow: 0 0 5px var(--accent-color), 0 0 25px var(--accent-color), 0 0 50px var(--accent-color);
+        }
 
 .close {
     padding: 5px 10px 5px 10px;
@@ -345,16 +349,16 @@ a {
 }
     .popupContent .name {
         font-size: 16px;
-        color: white;
+        color: var(--MainText-color);
     }
     .popupContent .jobT {
         font-size: 10px;
-        color: gray;
+        color: var(--secondary-color);
     }
     .popupContent .intro {
         padding-top: 15px;
         font-size: 12px;
-        color: white;
+        color: var(--Text-color);
     }
 
 ul {
@@ -394,7 +398,7 @@ img {
     position: relative;
 }
     .card-timeline:after {
-        background: linear-gradient( to bottom, #4E204D 90%, black 100% );
+        background: linear-gradient( to bottom, var(--accent-color) 67%, var(--bg-color) 100% );
         position: absolute;
         left: 39%;
         top: 0;
@@ -419,19 +423,20 @@ img {
         height: 8px;
         font-size: 12px;
         line-height: 0.6;
-        border: 2px solid #4E204D;
-        text-indent: -110px;        
+        border: 2px solid var(--accent-color);
+        text-indent: -110px;
         border-radius: 50%;
-        background: #4E204D;
+        background: var(--accent-color);
     }
 .card-item-title {
     font-size: 14px;
     position: absolute;
     top: -5px;
     left: 40.5%;
+    color: var(--secondary-color);
 }
     .card-item-title span {
-        color: darkslategrey;
+        color: var(--secondary-color);
     }
 .card-item-desc {
     position: absolute;
@@ -439,5 +444,5 @@ img {
     left: 40.5%;
     font-size: 10px;
     text-align: left;
-    color: gray;
+    color: var(--Text-color);
 }

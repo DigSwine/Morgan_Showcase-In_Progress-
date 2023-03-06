@@ -34,11 +34,6 @@
                     <div class="social">
                         <a href="https://www.linkedin.com/in/morgan-wilson-slider-411b39222/" target="_blank"></a>
                     </div>
-                    <!--
-    <div class="social">
-        <a href="https://www.youtube.com/channel/UC_GdyQgrz9BmPDZ0JJyUMOg" target="_blank"></a>
-    </div>
-        -->
                 </div>
             </div>
         </section>
@@ -53,7 +48,7 @@
                     </div>
                     <div class="navigation">
                         <a id="navAboutme" class="selected" href="#">About me</a>
-                        <a id="navExperiance" class="" href="#">Experiance</a>
+                        <a id="navHistory" class="" href="#">Employment History</a>
                         <a id="navContact" class="" href="#">Contact</a>
                     </div>
                     <div class="popupContent">
@@ -67,14 +62,14 @@
                                 I have learned a great deal with at designing, creating, and testing web-based applications.
                             </p>
                         </div>
-                        <div id="experiance" style="display: none;">
+                        <div id="whistory" style="display: none;">
                             <div class="card-timeline">
-                                <div class="card-item" data-year="September 2017">
-                                    <div class="card-item-title">Student at <span>University of Plymouth</span></div>
+                                <div class="card-item" data-year="March 2022">
+                                    <div class="card-item-title">Technical Assistant and QA Engineer at <span>WeHeartDigital and Webselect</span></div>
                                     <div class="card-item-desc">
-                                        Studied Computer and Information Security where I accelarated my knowledge of coding and developed the skills to 
-                                        learn and adapt my knowledge. Through this I have learned how to quickly overcome obsticals as well as cover a 
-                                        wide variety of developmental tools, languages, and techniques.
+                                        Assist in solving Support issues, and investigating issues across multipul devices.
+                                        Providing Quality Assurance to ensure that work by myself and others is of the highest quality.
+                                        Web-Development - By using CRMs such as SelectCommerce, Shopify and WordPress to build and maintain websites for eCommerce clients.
                                     </div>
                                 </div>
                                 <div class="card-item" data-year="Augest 2021">
@@ -86,12 +81,12 @@
                                         service.
                                     </div>
                                 </div>
-                                <div class="card-item" data-year="March 2022">
-                                    <div class="card-item-title">Technical Assistant and QA Engineer at <span>WeHeartDigital</span></div>
+                                <div class="card-item" data-year="September 2017">
+                                    <div class="card-item-title">Student at <span>University of Plymouth</span></div>
                                     <div class="card-item-desc">
-                                        Assist in solving Support issues, and investigating issues across multipul devices.
-                                        Providing Quality Assurance to ensure that work by myself and others is of the highest quality.
-                                        Web-Development - By using CRMs such as SelectCommerce, Shopify and WordPress to build and maintain websites for eCommerce clients.
+                                        Studied Computer and Information Security where I accelarated my knowledge of coding and developed the skills to
+                                        learn and adapt my knowledge. Through this I have learned how to quickly overcome obsticals as well as cover a
+                                        wide variety of developmental tools, languages, and techniques.
                                     </div>
                                 </div>
                             </div>
@@ -151,36 +146,32 @@
             '_blank'
         );
     });
-    
-
-    
-
-
 
     $('#navAboutme').click(function () {
         $('#navAboutme').addClass('selected');
-        $('#navExperiance').removeClass('selected');
+        $('#navHistory').removeClass('selected');
         $('#navContact').removeClass('selected');
         hide();
         toggle("aboutme");
     });
-    $('#navExperiance').click(function () {
+    $('#navHistory').click(function () {
         $('#navAboutme').removeClass('selected');
-        $('#navExperiance').addClass('selected');
+        $('#navHistory').addClass('selected');
         $('#navContact').removeClass('selected');
         hide();
-        toggle("experiance");
+        toggle("whistory");
     });
     $('#navContact').click(function () {
         $('#navAboutme').removeClass('selected');
-        $('#navExperiance').removeClass('selected');
+        $('#navHistory').removeClass('selected');
         $('#navContact').addClass('selected');
         hide();
         toggle("contact");
     });
+
     function hide() {
         document.getElementById("aboutme").style.display = "none";
-        document.getElementById("experiance").style.display = "none";
+        document.getElementById("whistory").style.display = "none";
         document.getElementById("contact").style.display = "none";
     }
     function toggle(srt) {
