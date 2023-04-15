@@ -480,3 +480,14 @@ img {
         right: -300px;
         background-color: var(--bg-color);
     }
+
+@media only screen and (max-width: 1540px) {
+    h1{
+        color: hotpink
+    }
+}
+@media only screen and (max-width: 1000px) {
+    h1 {
+        color: blue
+    }
+}
